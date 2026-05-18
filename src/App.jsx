@@ -608,7 +608,7 @@ function buildSummaryText(bg) {
 
 function buildGMHooks(bg) {
  const keys = ["definingEvent", "secret", "pressure", "destiny", "relationship"];
- const hooks = keys.map(k => bg[k]?.gmHook).filter(Boolean);
+ const hooks = keys.map(k => bg[k]?.gmHook?.trim()).filter(Boolean);
  const shuffle = [...hooks].sort(() => Math.random() - 0.5);
  return shuffle.slice(0, 3);
 }
