@@ -698,17 +698,17 @@ const TONE_COLORS = {
  Heroic: { bg: "bg-amber-900/30", border: "border-amber-600/50", text: "text-amber-300", dot: "bg-amber-400" },
  Dark: { bg: "bg-slate-800/60", border: "border-slate-600/50", text: "text-slate-300", dot: "bg-slate-400" },
  Nordic: { bg: "bg-cyan-900/30", border: "border-cyan-700/50", text: "text-cyan-300", dot: "bg-cyan-400" },
- Feywild: { bg: "bg-purple-900/30",border: "border-purple-600/50",text: "text-purple-300",dot: "bg-purple-400" },
+ Feywild: { bg: "bg-fuchsia-900/30", border: "border-fuchsia-600/50", text: "text-fuchsia-300", dot: "bg-fuchsia-400" },
  Political:{ bg: "bg-rose-900/30", border: "border-rose-700/50", text: "text-rose-300", dot: "bg-rose-400" },
  Horror: { bg: "bg-red-950/40", border: "border-red-800/50", text: "text-red-300", dot: "bg-red-500" },
- Planar: { bg: "bg-indigo-900/30",border: "border-indigo-600/50",text: "text-indigo-300",dot: "bg-indigo-400" },
+ Planar: { bg: "bg-indigo-900/30", border: "border-indigo-600/50", text: "text-indigo-300", dot: "bg-indigo-400" },
  Weird: { bg: "bg-teal-900/30", border: "border-teal-700/50", text: "text-teal-300", dot: "bg-teal-400" },
 };
 
 function FieldCard({ tableKey, entry, locked, onToggleLock, onReroll, tone }) {
  const colors = TONE_COLORS[tone] || TONE_COLORS.Dark;
  return (
- <div className={`relative rounded-lg border ${colors.border} ${locked ? colors.bg : "bg-stone-900/60"} p-4 transition-all duration-300 group`}>
+ <div className={`relative rounded-lg border ${colors.border} ${locked ? colors.bg : "bg-indigo-950/70"} p-4 transition-all duration-300 group`}>
  <div className="flex items-start justify-between gap-2 mb-2">
  <span className={`text-xs font-semibold tracking-widest uppercase ${colors.text} font-mono`}>
  {TABLE_LABELS[tableKey]}
@@ -718,24 +718,24 @@ function FieldCard({ tableKey, entry, locked, onToggleLock, onReroll, tone }) {
  onClick={() => onReroll(tableKey)}
  disabled={locked}
  title="Reroll this field"
- className={`p-1 rounded transition-colors ${locked ? "opacity-30 cursor-not-allowed" : "hover:text-amber-300 text-stone-500 hover:bg-stone-700/50"}`}
+ className={`p-1 rounded transition-colors ${locked ? "opacity-30 cursor-not-allowed" : "hover:text-emerald-400 text-indigo-400/50 hover:bg-indigo-800/50"}`}
  >
  <RefreshCw size={13} />
  </button>
  <button
  onClick={() => onToggleLock(tableKey)}
  title={locked ? "Unlock field" : "Lock field"}
- className={`p-1 rounded transition-colors ${locked ? `${colors.text} bg-stone-700/50` : "text-stone-500 hover:text-amber-300 hover:bg-stone-700/50"}`}
+ className={`p-1 rounded transition-colors ${locked ? `${colors.text} bg-indigo-800/50` : "text-indigo-400/50 hover:text-emerald-400 hover:bg-indigo-800/50"}`}
  >
  {locked ? <Lock size={13} /> : <Unlock size={13} />}
  </button>
  </div>
  </div>
- <p className="text-stone-200 text-sm leading-relaxed font-serif">{entry?.text}</p>
+ <p className="text-slate-100 text-sm leading-relaxed font-serif">{entry?.text}</p>
  {entry?.tags && (
  <div className="flex flex-wrap gap-1 mt-2">
  {entry.tags.map(t => (
- <span key={t} className="text-xs text-stone-500 bg-stone-800/60 px-1.5 py-0.5 rounded font-mono">{t}</span>
+ <span key={t} className="text-xs text-indigo-300/50 bg-indigo-900/50 px-1.5 py-0.5 rounded font-mono">{t}</span>
  ))}
  </div>
  )}
@@ -843,8 +843,8 @@ export default function App() {
  const lockedCount = Object.values(locked).filter(Boolean).length;
 
  return (
- <div className="min-h-screen bg-stone-950 text-stone-200" style={{
- backgroundImage: `radial-gradient(ellipse at 20% 10%, rgba(120,60,20,0.08) 0%, transparent 50%), radial-gradient(ellipse at 80% 90%, rgba(40,20,80,0.10) 0%, transparent 50%)`,
+ <div className="min-h-screen bg-purple-950 text-stone-200" style={{
+ backgroundImage: `radial-gradient(ellipse at 20% 10%, rgba(109,40,217,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 90%, rgba(67,20,120,0.20) 0%, transparent 50%)`,
  fontFamily: "'Georgia', 'Times New Roman', serif",
  }}>
  {/* Print styles */}
@@ -861,19 +861,19 @@ export default function App() {
  {/* Header */}
  <div className="text-center mb-8 no-print">
  <div className="flex items-center justify-center gap-3 mb-2">
- <Scroll className="text-amber-500" size={28} />
- <h1 className="text-3xl font-bold tracking-wide" style={{fontFamily:"'Cinzel', serif", color:"#d4a853"}}>
- Epic Background Generator
+ <Scroll className="text-violet-400" size={28} />
+ <h1 className="text-3xl font-bold tracking-wide" style={{fontFamily:"'Cinzel', serif", color:"#a78bfa"}}>
+ AsaheimRPG Epic Backgrounds
  </h1>
- <Scroll className="text-amber-500" size={28} />
+ <Scroll className="text-violet-400" size={28} />
  </div>
- <p className="text-stone-400 text-sm tracking-widest uppercase font-mono">D&D 5e Character Forge</p>
- <div className="h-px bg-gradient-to-r from-transparent via-amber-700/50 to-transparent mt-4" />
+ <p className="text-stone-400 text-sm tracking-widest uppercase font-mono">D&D 5E • Character Forge • asaheim.dk</p>
+ <div className="h-px bg-gradient-to-r from-transparent via-violet-700/50 to-transparent mt-4" />
  </div>
 
  {/* Tone Selector */}
  <div className="mb-6 no-print">
- <p className="text-xs uppercase tracking-widest text-stone-500 font-mono mb-3 text-center">Select Tone</p>
+ <p className="text-xs uppercase tracking-widest text-purple-300/60 font-mono mb-3 text-center">Select Tone</p>
  <div className="flex flex-wrap justify-center gap-2">
  {tones.map(t => {
  const c = TONE_COLORS[t];
@@ -883,7 +883,7 @@ export default function App() {
  key={t}
  onClick={() => setTone(t)}
  className={`px-3 py-1.5 rounded text-xs font-mono uppercase tracking-wider border transition-all duration-200
- ${active ? `${c.bg} ${c.border} ${c.text}` : "bg-stone-900/40 border-stone-700/50 text-stone-500 hover:border-stone-600 hover:text-stone-300"}`}
+ ${active ? `${c.bg} ${c.border} ${c.text}` : "bg-indigo-950/60 border-indigo-700/40 text-indigo-300/60 hover:border-indigo-500 hover:text-indigo-200"}`}
  >
  <span className={`inline-block w-1.5 h-1.5 rounded-full mr-1.5 ${active ? c.dot : "bg-stone-600"}`} />
  {t}
@@ -897,14 +897,14 @@ export default function App() {
  <div className="flex flex-wrap justify-center gap-3 mb-3 no-print">
  <button
  onClick={handleGenerate}
- className="flex items-center gap-2 px-5 py-2.5 rounded bg-amber-700 hover:bg-amber-600 text-amber-100 font-mono text-sm uppercase tracking-wider transition-all duration-200 hover:shadow-lg hover:shadow-amber-900/50"
+ className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white font-mono text-sm uppercase tracking-wider transition-all duration-200 hover:shadow-lg hover:shadow-emerald-900/50"
  >
  <Dices size={15} /> Generate Full Background
  </button>
  {generated && (
  <button
  onClick={handleRerollUnlocked}
- className="flex items-center gap-2 px-4 py-2.5 rounded bg-stone-700 hover:bg-stone-600 text-stone-200 font-mono text-sm uppercase tracking-wider transition-all"
+ className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-indigo-800/70 hover:bg-indigo-700 text-indigo-100 font-mono text-sm uppercase tracking-wider transition-all border border-indigo-600/50"
  >
  <RefreshCw size={14} />
  {lockedCount > 0 ? `Reroll Unlocked (${TABLE_KEYS.length - lockedCount})` : "Reroll All"}
@@ -916,7 +916,7 @@ export default function App() {
  className={`flex items-center gap-2 px-5 py-2.5 rounded font-mono text-sm uppercase tracking-wider transition-all duration-200 border
  ${activeView === "short"
  ? "bg-violet-700 border-violet-500 text-violet-100 shadow-lg shadow-violet-900/50"
- : "bg-violet-900/50 border-violet-700/60 text-violet-300 hover:bg-violet-800/60 hover:text-violet-100"}`}
+ : "bg-violet-700/50 border-violet-500/60 text-violet-200 hover:bg-violet-600/60 hover:text-white"}`}
  >
  <Clapperboard size={15} /> Long Story Short
  </button>
@@ -930,13 +930,13 @@ export default function App() {
  <>
  <button
  onClick={handleCopy}
- className="flex items-center gap-2 px-4 py-2 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono text-xs uppercase tracking-wider transition-all border border-stone-700/50"
+ className="flex items-center gap-2 px-4 py-2 rounded bg-indigo-900/60 hover:bg-indigo-800/60 text-indigo-200 font-mono text-xs uppercase tracking-wider transition-all border border-indigo-700/40"
  >
  <Copy size={13} /> {copied ? "Copied!" : "Copy Full Text"}
  </button>
  <button
  onClick={handlePrint}
- className="flex items-center gap-2 px-4 py-2 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono text-xs uppercase tracking-wider transition-all border border-stone-700/50"
+ className="flex items-center gap-2 px-4 py-2 rounded bg-indigo-900/60 hover:bg-indigo-800/60 text-indigo-200 font-mono text-xs uppercase tracking-wider transition-all border border-indigo-700/40"
  >
  <Printer size={13} /> Print / Export
  </button>
@@ -959,7 +959,7 @@ export default function App() {
  <button
  onClick={handleRerollShort}
  disabled={shortLoading}
- className="flex items-center gap-2 px-4 py-2 rounded bg-stone-800 hover:bg-stone-700 text-stone-300 font-mono text-xs uppercase tracking-wider transition-all border border-stone-700/50 disabled:opacity-50"
+ className="flex items-center gap-2 px-4 py-2 rounded bg-indigo-900/60 hover:bg-indigo-800/60 text-indigo-200 font-mono text-xs uppercase tracking-wider transition-all border border-indigo-700/40 disabled:opacity-50"
  >
  <RefreshCw size={13} /> Regenerate
  </button>
@@ -992,7 +992,7 @@ export default function App() {
  : id === "prompts"
  ? "bg-emerald-900/50 border-emerald-700/60 text-emerald-300"
  : `${colors.bg} ${colors.border} ${colors.text}`
- : "bg-stone-900/40 border-stone-700/40 text-stone-500 hover:text-stone-300 hover:border-stone-600"}`}
+ : "bg-indigo-950/40 border-indigo-700/40 text-indigo-400/60 hover:text-indigo-200 hover:border-indigo-500"}`}
  >
  <Icon size={11} /> {label}
  </button>
@@ -1003,9 +1003,9 @@ export default function App() {
  {/* Empty State */}
  {!generated && (
  <div className="text-center py-20">
- <Sparkles className="mx-auto text-stone-600 mb-4" size={40} />
- <p className="text-stone-500 text-sm font-mono uppercase tracking-widest">Select a tone and generate your background</p>
- <p className="text-stone-600 text-xs mt-2">500 curated entries across 10 tables</p>
+ <Sparkles className="mx-auto text-violet-800 mb-4" size={40} />
+ <p className="text-violet-300/50 text-sm font-mono uppercase tracking-widest">Select a tone and generate your background</p>
+ <p className="text-violet-400/40 text-xs mt-2">500 curated entries across 10 tables</p>
  </div>
  )}
 
@@ -1035,7 +1035,7 @@ export default function App() {
  {showSummary ? <ChevronUp size={14} className={colors.text} /> : <ChevronDown size={14} className={colors.text} />}
  </button>
  {showSummary && (
- <p className="text-stone-300 text-sm leading-relaxed font-serif mt-3 italic">{summary}</p>
+ <p className="text-slate-300 text-sm leading-relaxed font-serif mt-3 italic">{summary}</p>
  )}
  </div>
  <p className="text-center text-stone-600 text-xs font-mono mt-6 no-print">
@@ -1046,13 +1046,13 @@ export default function App() {
 
  {/*  LONG STORY SHORT VIEW  */}
  {generated && activeView === "short" && (
- <div className="rounded-lg border border-violet-700/50 bg-violet-950/30 p-7 mb-6">
+ <div className="rounded-lg border border-violet-600/40 bg-violet-900/20 p-7 mb-6">
  {/* Header */}
  <div className="flex items-center gap-3 mb-5">
  <Clapperboard className="text-violet-400 shrink-0" size={20} />
  <div>
  <p className="text-xs font-semibold uppercase tracking-widest font-mono text-violet-400">Long Story Short</p>
- <p className="text-stone-500 text-xs mt-0.5">What do I actually play at the table?</p>
+ <p className="text-indigo-300/50 text-xs mt-0.5">What do I actually play at the table?</p>
  </div>
  </div>
 
@@ -1076,7 +1076,7 @@ export default function App() {
  {shortVersion}
  </p>
  {/* Six-element breakdown */}
- <div className="mt-6 pt-5 border-t border-violet-800/40 grid grid-cols-2 md:grid-cols-3 gap-3">
+ <div className="mt-6 pt-5 border-t border-violet-600/40 grid grid-cols-2 md:grid-cols-3 gap-3">
  {[
  { label: "Core Motivation", key: "need", color: "text-amber-300" },
  { label: "Core Fear", key: "fear", color: "text-red-300" },
@@ -1087,9 +1087,9 @@ export default function App() {
  ].map(({ label, key, color }) => {
  const isExpanded = expandedCard === key;
  return (
- <div key={key} className="bg-stone-900/60 rounded p-3 border border-stone-800/60 cursor-pointer hover:border-stone-600/60 transition-colors" onClick={() => setExpandedCard(isExpanded ? null : key)}>
+ <div key={key} className="bg-indigo-950/70 rounded p-3 border border-indigo-800/50 cursor-pointer hover:border-indigo-600/60 transition-colors" onClick={() => setExpandedCard(isExpanded ? null : key)}>
  <p className={`text-xs font-mono uppercase tracking-wider mb-1 ${color}`}>{label}</p>
- <p className={`text-stone-300 text-xs font-serif leading-relaxed ${isExpanded ? "" : "line-clamp-3"}`}>{background[key]?.text}</p>
+ <p className={`text-slate-200 text-xs font-serif leading-relaxed ${isExpanded ? "" : "line-clamp-3"}`}>{background[key]?.text}</p>
  </div>
  );
  })}
@@ -1110,7 +1110,7 @@ export default function App() {
  {gmHooks.map((hook, i) => (
  <li key={i} className="flex gap-4">
  <span className="text-rose-500 font-mono font-bold text-lg shrink-0 leading-snug">{i + 1}.</span>
- <p className="text-stone-200 text-sm font-serif leading-relaxed">{hook}</p>
+ <p className="text-slate-200 text-sm font-serif leading-relaxed">{hook}</p>
  </li>
  ))}
  </ul>
@@ -1128,7 +1128,7 @@ export default function App() {
  {playerPrompts.map((q, i) => (
  <li key={i} className="flex gap-4">
  <span className="text-emerald-500 font-mono font-bold text-lg shrink-0 leading-snug">{i + 1}.</span>
- <p className="text-stone-200 text-sm font-serif leading-relaxed italic">{q}</p>
+ <p className="text-slate-200 text-sm font-serif leading-relaxed italic">{q}</p>
  </li>
  ))}
  </ul>
