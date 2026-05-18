@@ -744,6 +744,135 @@ function FieldCard({ tableKey, entry, locked, onToggleLock, onReroll, tone }) {
 }
 
 // ============================================================
+// INTRO PANEL
+// ============================================================
+function IntroPanel() {
+ return (
+ <div
+  className="relative max-w-2xl mx-auto mb-12 px-6 py-10 rounded-2xl overflow-hidden"
+  style={{
+   background: "linear-gradient(160deg, rgba(30,14,60,0.95) 0%, rgba(20,10,45,0.98) 100%)",
+   border: "1px solid rgba(139,92,246,0.25)",
+   boxShadow: "0 0 60px rgba(109,40,217,0.12), inset 0 1px 0 rgba(167,139,250,0.1)",
+   animation: "intrофade 1.2s ease both",
+  }}
+ >
+  <style>{`
+   @keyframes intrофade { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+   .intro-drop::first-letter { font-size:3.2em; line-height:0.8; float:left; margin:0.05em 0.08em 0 0; color:#a78bfa; font-family:'Cinzel',serif; font-weight:700; }
+  `}</style>
+
+  {/* Top ornament */}
+  <div className="flex items-center justify-center gap-3 mb-8">
+   <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-600/40" />
+   <span className="text-violet-500/70 text-lg select-none">✦</span>
+   <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-600/40" />
+  </div>
+
+  {/* Title */}
+  <h2 className="text-center text-4xl font-bold tracking-widest mb-3" style={{fontFamily:"'Cinzel',serif", color:"#c4b5fd", textShadow:"0 0 40px rgba(167,139,250,0.3)"}}>
+   Epic Destinies
+  </h2>
+  <p className="text-center text-sm tracking-wider text-violet-300/70 mb-8" style={{fontFamily:"'Crimson Text',serif", fontStyle:"italic", fontSize:"1.05rem"}}>
+   Create characters driven by fear, ambition, loss, hope, prophecy, and impossible choices.
+  </p>
+
+  {/* Divider */}
+  <div className="flex items-center justify-center gap-3 mb-8">
+   <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-700/30" />
+   <div className="flex gap-1.5">
+    <span className="w-1 h-1 rounded-full bg-violet-500/50" />
+    <span className="w-1.5 h-1.5 rounded-full bg-violet-400/60" />
+    <span className="w-1 h-1 rounded-full bg-violet-500/50" />
+   </div>
+   <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-700/30" />
+  </div>
+
+  {/* Body */}
+  <div className="space-y-5 text-slate-300/90 leading-relaxed" style={{fontFamily:"'Crimson Text',serif", fontSize:"1.08rem"}}>
+
+   <p className="intro-drop">
+    The greatest heroes in fantasy are never defined only by power. They are defined by <em>what drives them.</em>
+   </p>
+
+   <p>
+    A sword, a spellbook, or a legendary artifact may shape a hero's path, but true stories are born from deeper things: guilt, ambition, love, fear, obsession, faith, revenge, hope, shame, sacrifice, and the desperate need to become someone more than they once were.
+   </p>
+
+   <div className="border-l-2 border-violet-600/40 pl-5 py-1 my-6">
+    <p className="text-violet-200/90 italic text-lg leading-snug" style={{fontFamily:"'Crimson Text',serif"}}>
+     An epic background is not simply a biography.<br/>
+     It is the emotional engine of a character.
+    </p>
+   </div>
+
+   <p>
+    It is the reason they leave safety behind. The reason they risk death for strangers. The reason they cannot let the past rest. It gives the Dungeon Master meaningful ways to challenge the character, tempt them, reward them, and transform them over the course of a campaign.
+   </p>
+
+   <p>
+    Traditional fantasy backgrounds often explain <em>where a character came from.</em> This generator is designed to answer something far more important:
+   </p>
+
+   <p className="text-center text-violet-200 text-xl font-semibold py-2" style={{fontFamily:"'Cinzel',serif", letterSpacing:"0.04em"}}>
+    Who is this character becoming?
+   </p>
+
+   <p>
+    The Epic Background Generator was created to help players and Dungeon Masters build characters filled with dramatic tension, emotional conflict, personal stakes, dangerous desires, hidden truths, and unresolved wounds. Instead of generating passive lore, it creates <em>active narrative pressure</em> — the kind of pressure that drives unforgettable scenes at the table.
+   </p>
+
+   <div className="rounded-xl bg-indigo-950/60 border border-indigo-800/40 px-6 py-5 my-2">
+    <p className="text-violet-300/80 text-sm uppercase tracking-widest font-mono mb-3">Every result is designed to create playable storytelling:</p>
+    <ul className="space-y-1.5 text-slate-300/80">
+     {[
+      "goals that demand action",
+      "fears that create hesitation",
+      "secrets that can explode later",
+      "relationships that matter",
+      "contradictions that make characters human",
+      "and destinies that evolve as the campaign grows",
+     ].map((item, i) => (
+      <li key={i} className="flex items-start gap-2.5">
+       <span className="text-violet-500/70 mt-1.5 shrink-0">◆</span>
+       <span>{item}</span>
+      </li>
+     ))}
+    </ul>
+   </div>
+
+   <p>
+    Some characters may seek redemption. Others vengeance. Some are running from prophecy. Others are terrified it might be true.
+   </p>
+
+   <div className="flex items-center justify-center gap-3 my-4">
+    <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-700/25" />
+    <span className="text-violet-500/50 text-sm select-none">✦</span>
+    <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-700/25" />
+   </div>
+
+   <p className="text-violet-200/90 text-center italic" style={{fontSize:"1.05rem"}}>
+    The goal is not to create perfect heroes.<br/>
+    The goal is to create heroes who are <strong className="text-violet-300 not-italic">impossible to ignore.</strong>
+   </p>
+
+   <p className="text-center text-slate-400/80 text-base">
+    Because the most memorable characters are not the strongest ones.<br/>
+    They are the ones with <em>something meaningful to lose.</em>
+   </p>
+  </div>
+
+  {/* Bottom ornament */}
+  <div className="flex items-center justify-center gap-3 mt-8">
+   <div className="h-px flex-1 bg-gradient-to-r from-transparent to-violet-600/40" />
+   <span className="text-violet-500/70 text-lg select-none">✦</span>
+   <div className="h-px flex-1 bg-gradient-to-l from-transparent to-violet-600/40" />
+  </div>
+ </div>
+ );
+}
+
+// ============================================================
 // MAIN APP
 // ============================================================
 export default function App() {
@@ -761,6 +890,7 @@ export default function App() {
  const [shortError, setShortError] = useState("");
  const [copiedShort, setCopiedShort] = useState(false);
  const [expandedCard, setExpandedCard] = useState(null);
+ const [showIntro, setShowIntro] = useState(false);
  const printRef = useRef();
 
  const handleGenerate = useCallback(() => {
@@ -1000,14 +1130,20 @@ export default function App() {
  </div>
  )}
 
- {/* Empty State */}
- {!generated && (
- <div className="text-center py-20">
- <Sparkles className="mx-auto text-violet-800 mb-4" size={40} />
- <p className="text-violet-300/50 text-sm font-mono uppercase tracking-widest">Select a tone and generate your background</p>
- <p className="text-violet-400/40 text-xs mt-2">500 curated entries across 10 tables</p>
+ {/* Intro Panel — shown before generation, toggleable after */}
+ {!generated && <IntroPanel />}
+ {generated && (
+ <div className="flex justify-center mb-4 no-print">
+  <button
+  onClick={() => setShowIntro(v => !v)}
+  className="flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono uppercase tracking-wider border border-violet-700/40 text-violet-400/70 hover:text-violet-300 hover:border-violet-500/60 transition-all bg-indigo-950/40"
+  >
+  <Sparkles size={11} />
+  {showIntro ? "Hide Intro" : "Show Intro"}
+  </button>
  </div>
  )}
+ {generated && showIntro && <IntroPanel />}
 
  {/*  FULL BACKGROUND VIEW  */}
  {generated && activeView === "full" && (
