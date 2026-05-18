@@ -863,11 +863,11 @@ export default function App() {
  <div className="flex items-center justify-center gap-3 mb-2">
  <Scroll className="text-violet-400" size={28} />
  <h1 className="text-3xl font-bold tracking-wide" style={{fontFamily:"'Cinzel', serif", color:"#a78bfa"}}>
- AsaheimRPG Epic Backgrounds
+ EpicBackground RPG
  </h1>
  <Scroll className="text-violet-400" size={28} />
  </div>
- <p className="text-stone-400 text-sm tracking-widest uppercase font-mono">D&D 5E • Character Forge • asaheim.dk</p>
+ <p className="text-indigo-300/60 text-sm tracking-widest uppercase font-mono">D&D 5E • Character Forge • <a href="https://asaheim.dk" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300 underline underline-offset-2 transition-colors">asaheim.dk</a></p>
  <div className="h-px bg-gradient-to-r from-transparent via-violet-700/50 to-transparent mt-4" />
  </div>
 
