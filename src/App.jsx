@@ -882,11 +882,9 @@ export default function App() {
  const [generated, setGenerated] = useState(false);
  const [copied, setCopied] = useState(false);
  const [showSummary, setShowSummary] = useState(true);
- const [showHooks, setShowHooks] = useState(true);
- const [showPrompts, setShowPrompts] = useState(true);
  const [activeView, setActiveView] = useState("full");
  const [shortVersion, setShortVersion] = useState("");
- const [shortLoading, setShortLoading] = useState(false);
+ const shortLoading = false;
  const [shortError, setShortError] = useState("");
  const [copiedShort, setCopiedShort] = useState(false);
  const [expandedCard, setExpandedCard] = useState(null);
@@ -941,7 +939,7 @@ export default function App() {
 
  const handleRerollUnlocked = useCallback(() => {
  setBackground(prev => generateBackground(tone, locked, prev));
- }, [tone, locked, background]);
+ }, [tone, locked]);
 
  const handleRerollSingle = useCallback((key) => {
  setBackground(prev => ({
